@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio HTML + JS</title>
+
+</head>
+<body>
+    <h1>Apri la console per vedere l'output ----- premi f12</h1>
+    <script >
+        const giocatori = [
+        {
+            nome: "Marco Rinaldi",
+            puntiBase: 120,
+            prestazioni: [15, 20, 18, 22]
+        },
+        {
+            nome: "Luca Bianchi",
+            puntiBase: 100,
+            prestazioni: [10, 12, 25, 30]
+        },
+        {
+            nome: "Sara Verdi",
+            puntiBase: 140,
+            prestazioni: [20, 18, 15, 17]
+        }
+        ];
+
+    // Rest Parameter: raccoglie tutti i punteggi extra in un array
+    function aggiornaPunti(puntiBase, ...altriPunti) {
+        let totale = puntiBase;
+
+        for (let punti of altriPunti) {
+            totale += punti;
+        }
+
+        return totale;
+    }
+    for (let giocatore of giocatori) {
+        // Spread Operator: espande l'array delle prestazioni in singoli valori
+        const punteggioTotale = aggiornaPunti(
+            giocatore.puntiBase,
+            ...giocatore.prestazioni
+        );
+
+        console.log(`Giocatore: ${giocatore.nome}`);
+        console.log(`Punteggio totale: ${punteggioTotale}`);
+    }
+    </script>
+</body>
+</html>

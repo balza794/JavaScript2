@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio HTML + JS</title>
+
+</head>
+<body>
+    <h1>Apri la console per vedere l'output ----- premi f12</h1>
+    <script >
+        let lettori = [
+            {
+                nome: "Giulia Conti",
+                giorniBase: 7,
+                prestiti: [14, 10, 6]
+            },
+            {
+                nome: "Alessandro Rossi",
+                giorniBase: 5,
+                prestiti: [20, 8]
+            },
+            {
+                nome: "Elena Ferri",
+                giorniBase: 10,
+                prestiti: [12, 15, 5]
+            }
+        ];
+        function aggiornaGiorni(giorniBase, ...giorniPrestiti) {
+            let totale = giorniBase;
+
+            for (let giorni of giorniPrestiti) {
+                totale += giorni;
+            }
+
+            return totale;
+        }
+        for (let lettore of lettori) {
+            let totaleGiorni = aggiornaGiorni(
+                lettore.giorniBase,
+                ...lettore.prestiti
+            );
+
+            console.log("Lettore:", lettore.nome);
+            console.log("Totale giorni di prestito:", totaleGiorni);
+        }
+    </script>
+</body>
+</html>
